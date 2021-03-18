@@ -13,7 +13,15 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
+		setCart([...cart, item]);
 	};
+
+	const removeItem = item => {
+		if (cart.indexOf(item) !== -1) {
+			// an item exists, remove the one instance
+		}
+		setCart([]);
+	}
 
 	return (
 		<div className="App">
@@ -25,7 +33,7 @@ function App() {
 			</Route>
 
 			<Route path="/cart">
-				<ShoppingCart cart={cart} />
+				<ShoppingCart cart={cart} removeItem={removeItem} />
 			</Route>
 		</div>
 	);
