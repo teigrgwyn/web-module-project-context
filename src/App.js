@@ -16,11 +16,16 @@ function App() {
 		setCart([...cart, item]);
 	};
 
-	const removeItem = item => {
-		if (cart.indexOf(item) !== -1) {
-			// an item exists, remove the one instance
-		}
-		setCart([]);
+	const removeItem = removalID => {
+		const newArr = cart.map((item, index) => {
+			return (removalID !== index ? true : false);
+		})
+
+		setCart(
+			cart.filter((item, index) => {
+				return (removalID !== index ? true : false)
+			})
+		);
 	}
 
 	return (
